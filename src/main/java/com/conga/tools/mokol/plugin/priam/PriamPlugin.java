@@ -15,12 +15,7 @@ import com.conga.tools.mokol.spi.annotation.Plugin;
  * 
  * @author Todd Fast
  */
-@Plugin(commands = {
-		@Command(alias = "createDomains", command = CreateDomainsCommand.class),
-		@Command(alias = "dropDomains", command = DropDomainsCommand.class),
-		@Command(alias = "clearDomains", command = ClearDomainsCommand.class),
-		@Command(alias = "createApp", command = CreateAppCommand.class) 
-})
+
 public class PriamPlugin extends BasePlugin {
 
 	/**
