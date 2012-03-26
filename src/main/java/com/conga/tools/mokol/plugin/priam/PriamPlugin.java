@@ -55,7 +55,14 @@ public class PriamPlugin extends Plugin {
 	public ClearDomainsCommand clearDomains(CommandContext context) {
 		return new ClearDomainsCommand();
 	}
-
+	/**
+	 *
+	 *
+	 */
+	@Command(alias = "listInstances")
+	public ListInstancesCommand listInstances(CommandContext context) {
+		return new ListInstancesCommand();
+	}
 	/**
 	 *
 	 *

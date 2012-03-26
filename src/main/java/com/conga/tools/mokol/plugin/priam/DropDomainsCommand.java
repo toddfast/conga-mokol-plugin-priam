@@ -8,11 +8,13 @@ import java.util.List;
 import com.amazonaws.services.simpledb.model.DeleteDomainRequest;
 import com.conga.tools.mokol.CommandContext;
 import com.conga.tools.mokol.ShellException;
+import com.conga.tools.mokol.spi.annotation.Help;
 
 /**
  * @author jflexa
  * 
  */
+@Help("Drop the domains used by Priam on SimpleDB: priamProperties and instanceIdentity")
 public class DropDomainsCommand extends PriamCommand {
 
 	@Override

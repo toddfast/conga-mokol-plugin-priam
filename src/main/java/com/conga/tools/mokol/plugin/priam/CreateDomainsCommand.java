@@ -6,11 +6,13 @@ import com.amazonaws.services.simpledb.model.CreateDomainRequest;
 import com.conga.tools.mokol.CommandContext;
 import com.conga.tools.mokol.ShellException;
 import com.conga.tools.mokol.metadata.Usage;
+import com.conga.tools.mokol.spi.annotation.Help;
 
 /**
  * 
  * @author jflexa
  */
+@Help("Create the domains used by Priam on SimpleDB: priamProperties and instanceIdentity")
 public class CreateDomainsCommand extends PriamCommand {
 
 	@Override

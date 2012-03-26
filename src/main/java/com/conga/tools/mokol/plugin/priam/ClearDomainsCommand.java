@@ -6,11 +6,13 @@ import com.amazonaws.services.simpledb.model.CreateDomainRequest;
 import com.amazonaws.services.simpledb.model.DeleteDomainRequest;
 import com.conga.tools.mokol.CommandContext;
 import com.conga.tools.mokol.ShellException;
+import com.conga.tools.mokol.spi.annotation.Help;
 
 /**
  * @author jflexa
  * 
  */
+@Help("Clear Priam domains on SimpleDB: priamProperties and instanceIdentity")
 public class ClearDomainsCommand extends PriamCommand {
 
 	@Override

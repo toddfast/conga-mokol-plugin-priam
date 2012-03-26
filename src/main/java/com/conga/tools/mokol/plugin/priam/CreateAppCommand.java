@@ -9,17 +9,29 @@ import com.amazonaws.services.simpledb.model.ReplaceableAttribute;
 import com.amazonaws.services.simpledb.model.ReplaceableItem;
 import com.conga.tools.mokol.CommandContext;
 import com.conga.tools.mokol.ShellException;
+import com.conga.tools.mokol.spi.annotation.Help;
 
 /**
  * @author jflexa
  * 
  */
+@Help("Create a Priam application by inserting properties on SimpleDB domain priamProperties")
 public class CreateAppCommand extends PriamCommand {
 	String[] names = new String[] { "priam.backup.threads",
 			"priam.backup.hour", "priam.backup.incremental.enable",
 			"priam.backup.chunksizemb", "priam.restore.prefix",
 			"priam.restore.snapshot", "priam.s3.bucket", "priam.s3.base_dir",
-			"priam.restore.threads" };
+			"priam.restore.threads", "priam.restore.closesttoken",
+			"priam.restore.keyspaces", "priam.upload.throttle",
+			"priam.cass.home", "priam.cass.startscript",
+			"priam.cass.stopscript", "priam.data.location",
+			"priam.cache.location", "priam.commitlog.location",
+			"priam.clustername", "priam.endpoint_snitch",
+			"priam.multiregion.enable", "priam.zones.available",
+			"priam.memory.compaction.limit", "priam.compaction.throughput",
+			"priam.heap.size", "priam.heap.newgen.size",
+			"priam.direct.memory.size", "priam.storage.port",
+			"priam.thrift.port", "priam.jmx.port" };
 	List<String> propertyNames = Arrays.asList(names);
 
 	@Override

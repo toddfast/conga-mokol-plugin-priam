@@ -1,6 +1,6 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.conga.tools.mokol</groupId>
@@ -26,17 +26,9 @@
 				</executions>
 				<configuration>
 					<mainClass>com.conga.tools.mokol.Shell</mainClass>
-					<!--
-					<arguments>
-						<argument>argument1</argument>
-					</arguments>
-					<systemProperties>
-						<systemProperty>
-							<key>myproperty</key>
-							<value>myvalue</value>
-						</systemProperty>
-					</systemProperties>
-					-->
+					<!-- <arguments> <argument>argument1</argument> </arguments> <systemProperties> 
+						<systemProperty> <key>myproperty</key> <value>myvalue</value> </systemProperty> 
+						</systemProperties> -->
 				</configuration>
 			</plugin>
 			<plugin>
@@ -50,14 +42,30 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
+							<relocations>
+								<relocation>
+									<pattern>aws</pattern>
+									<shadedPattern>com.amazonaws</shadedPattern>
+								</relocation>
+								<relocation>
+									<pattern>codehaus</pattern>
+									<shadedPattern>org.codehaus</shadedPattern>
+								</relocation>
+								<relocation>
+									<pattern>apache</pattern>
+									<shadedPattern>org.apache</shadedPattern>
+								</relocation>
+							</relocations>
 							<artifactSet>
 								<excludes>
 									<exclude>com.conga.tools.mokol:conga-mokol</exclude>
 								</excludes>
 							</artifactSet>
 							<transformers>
-								<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<mainClass>${app.main.class}</mainClass>
 									<manifestEntries>
 										<Implementation-Version>${project.version}</Implementation-Version>

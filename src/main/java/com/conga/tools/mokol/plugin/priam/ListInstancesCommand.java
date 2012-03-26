@@ -7,11 +7,13 @@ import com.amazonaws.services.simpledb.model.Item;
 import com.amazonaws.services.simpledb.model.SelectRequest;
 import com.conga.tools.mokol.CommandContext;
 import com.conga.tools.mokol.ShellException;
+import com.conga.tools.mokol.spi.annotation.Help;
 
 /**
  * @author jflexa
  * 
  */
+@Help("List the available instances on Priam´s SimpleDB instanceIdentity")
 public class ListInstancesCommand extends PriamCommand {
 
 	private String appId = null;
@@ -32,17 +34,17 @@ public class ListInstancesCommand extends PriamCommand {
 			}
 		}
 		String selectExpression = "select * from " + instanceIdentity
-				+ (appId == null ? "" : "where appId='" + appId + "'");
+				+ (appId == null ? "" : " where appId='" + appId + "'");
 
 		ctx.printf("Selecting Instances\n");
 		SelectRequest selectRequest = new SelectRequest(selectExpression);
 		for (Item item : sdb.select(selectRequest).getItems()) {
-			ctx.printf("  Item\n");
-			ctx.printf("    Name: %s\n", item.getName());
+			ctx.printf("\tItem\n");
+			ctx.printf("\t\tName: %s\n", item.getName());
 			for (Attribute attribute : item.getAttributes()) {
-				ctx.printf("      Attribute\n");
-				ctx.printf("        Name:  %s\n", attribute.getName());
-				ctx.printf("        Value: %s\n", attribute.getValue());
+				ctx.printf("\tAttribute\n");
+				ctx.printf("\t\tName:  %s\n", attribute.getName());
+				ctx.printf("\t\tValue: %s\n", attribute.getValue());
 			}
 		}
 
