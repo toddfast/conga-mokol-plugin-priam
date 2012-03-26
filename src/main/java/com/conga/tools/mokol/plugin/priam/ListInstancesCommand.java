@@ -13,7 +13,7 @@ import com.conga.tools.mokol.spi.annotation.Help;
  * @author jflexa
  * 
  */
-@Help("List the available instances on Priam´s SimpleDB instanceIdentity")
+@Help("List the available instances on Priam's SimpleDB instanceIdentity")
 public class ListInstancesCommand extends PriamCommand {
 
 	private String appId = null;
